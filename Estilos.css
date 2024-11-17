@@ -1,0 +1,841 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilos del formulario */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para los checkboxes */
+.checkbox-container h3 {
+    margin-bottom: 15px;
+}
+
+.checkbox-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Estilos para las órdenes */
+.ordenes-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ordenes-container h2 {
+    margin-bottom: 20px;
+}
+
+#buscador {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.orden-detalle {
+    margin-bottom: 10px;
+}
+
+.eliminar-btn {
+    padding: 8px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.eliminar-btn:hover {
+    background-color: #c82333;
+}
+#detalleOrden {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+#detalleOrden h3 {
+    color: #333;
+}
+
+#detalleServicios {
+    list-style-type: none;
+    padding: 0;
+}
+
+#detalleServicios li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.orden-item {
+    position: relative; /* Permitir posicionamiento interno */
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.dias-restantes {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dark-mode .dias-restantes {
+    background-color: #444; /* Fondo oscuro para que resalte en modo oscuro */
+    color: #fff; /* Texto blanco */
+}
+
+.vencida {
+    color: red;
+}
+
+/* Estilo para los campos de filtro de fecha */
+.fecha-filtro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.fecha-filtro label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.fecha-filtro input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.fecha-filtro input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Espaciado adicional para diferenciar las secciones */
+.ordenes-container h2, #ordenesRealizadas h2 {
+    margin-top: 30px;
+}
+
+.completar-btn {
+    padding: 8px 12px;
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.completar-btn:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+
+.orden-item { /* Estilo base para las órdenes */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.en-progreso {
+    background-color: #ffeeba; /* Naranja claro */
+    border-color: #ffdf7e;
+}
+
+.completado {
+    background-color: #d4edda; /* Verde claro */
+    border-color: #c3e6cb;
+}
+
+.fecha-filtro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.fecha-filtro label, 
+.fecha-filtro input[type="date"], 
+.fecha-filtro select {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.fecha-filtro select,
+.fecha-filtro input[type="date"] {
+    width: calc(100% - 20px); /* Ajuste para alinear con padding del contenedor */
+}
+
+/* Tema Claro (por defecto) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Tema Oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode .form-container,
+.dark-mode .ordenes-container,
+.dark-mode #detalleOrden {
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="number"],
+.dark-mode input[type="date"],
+.dark-mode select {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+.dark-mode button {
+    background-color: #007bff;
+    color: white;
+}
+
+.dark-mode button:hover {
+    background-color: #0056b3;
+}
+
+/* Modo Oscuro: Estilo predeterminado para órdenes sin estado */
+.dark-mode .orden-item {
+    background-color: #3a3a3a; /* Fondo gris oscuro para órdenes sin estado */
+    color: #ffffff; /* Texto blanco */
+}
+
+.dark-mode .en-progreso {
+    background-color: #ebc507c0; /* Naranja */
+    border-color: #ffffff;
+    color: #333; /* Texto negro */
+}
+
+.dark-mode .completado {
+    background-color: #388e3c; /* Verde oscuro */
+    border-color: #f7f7f7;
+    color: #ffffff; /* Texto blanco */
+}
+
+
+.dark-mode .vencida {
+    color: #ff4c4c; /* Rojo claro para indicar vencida */
+}
+
+/* Títulos en modo oscuro */
+.dark-mode h2 {
+    color: #ffffff;
+}
+
+.dark-mode h3 {
+    color: #ffffff;
+}
+
+.dark-mode #detalleOrden, .dark-mode #detalleOrdenCompletada {
+    background-color: #333; /* Fondo más oscuro */
+    color: white; /* Texto blanco */
+    border: 1px solid #555; /* Borde oscuro */
+}
+
+.dark-mode #detalleServicios li {
+    background-color: #444; /* Fondo más oscuro para los servicios */
+    color: white;
+    border: 1px solid #666;
+}
+
+/* Modo Oscuro: Estilo predeterminado para Órdenes Realizadas */
+.dark-mode #listaOrdenesCompletadas li {
+    background-color: #3a3a3a; /* Fondo gris oscuro para las órdenes */
+    color: #ffffff; /* Texto blanco */
+    border: 1px solid #666; /* Borde oscuro */
+}
+
+.dark-mode .orden-detalle {
+    color: white;
+}
+
+.dark-mode #listaOrdenesCompletadas .en-progreso {
+    background-color: #ff9800; /* Naranja */
+    border-color: #ff9800;
+    color: #333;
+}
+
+.dark-mode #listaOrdenesCompletadas .completado {
+    background-color: #388e3c; /* Verde oscuro */
+    border-color: #2e7d32;
+    color: #ffffff;
+}
+
+/* Modo Oscuro: Ajustes para los botones */
+.dark-mode .detalle-btn {
+    background-color: #007bff;  /* Azul */
+    color: white;
+    border: 2px solid black;
+}
+
+.dark-mode .completar-btn {
+    background-color: #28a745;  /* Verde */
+    color: white;
+    border: 2px solid black;
+}
+
+.dark-mode .eliminar-btn {
+    background-color: #dc3545;  /* Rojo */
+    color: white;
+    border: 2px solid black;
+}
+
+/* Hover effect para los botones en modo oscuro */
+.dark-mode .detalle-btn:hover,
+.dark-mode .completar-btn:hover,
+.dark-mode .eliminar-btn:hover {
+    filter: brightness(0.9);  /* Oscurecimiento ligero en hover */
+}
+
+/* Delineado negro para los botones */
+.detalle-btn,
+.completar-btn,
+.eliminar-btn {
+    border: 2px solid black;  /* Delineado negro */
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.detalle-btn {
+    background-color: #007bff;  /* Azul predeterminado */
+    color: white;
+}
+
+.completar-btn {
+    background-color: #28a745;  /* Verde predeterminado */
+    color: white;
+}
+
+.eliminar-btn {
+    background-color: #dc3545;  /* Rojo predeterminado */
+    color: white;
+}
+
+/* Hover effect para los botones */
+.detalle-btn:hover,
+.completar-btn:hover,
+.eliminar-btn:hover {
+    filter: brightness(0.9);  /* Efecto de oscurecimiento al pasar el cursor */
+}
+
+.toggle-switch {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    --light: #d8dbe0;
+    --dark: #28292c;
+    --link: rgb(27, 129, 112);
+    --link-hover: rgb(24, 94, 82);
+    top: 20px;
+    left: 20px;
+    position: fixed;
+  }
+
+  .switch-label {
+    position: absolute;
+    width: 85%;
+    height: 45px;
+    background-color: var(--dark);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+  }
+
+  .checkbox {
+    position: absolute;
+    display: none;
+  }
+
+  .slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+
+  .checkbox:checked ~ .slider {
+    background-color: var(--light);
+  }
+
+  .slider::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+    box-shadow: inset 12px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+
+  .checkbox:checked ~ .slider::before {
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(42px);
+    background-color: var(--dark);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* Estilo para la sección de servicios disponibles */
+#capacidadesMaquinas {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 20px; /* Espaciado entre las columnas */
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo suave */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+#capacidadesMaquinas p {
+    background-color: #fff; /* Fondo blanco para cada servicio */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-size: 16px;
+    text-align: center;
+    margin: 0; /* Eliminar margen para alineación perfecta */
+}
+
+#capacidadesMaquinas strong {
+    color: #007bff; /* Color azul para los títulos de servicios */
+}
+
+@media (max-width: 768px) {
+    #capacidadesMaquinas {
+        grid-template-columns: 1fr; /* Colapsar a una columna en pantallas pequeñas */
+    }
+}
+
+/* Modo oscuro para la sección de capacidades */
+body.dark-mode #capacidadesMaquinas {
+    background-color: #333; /* Fondo oscuro */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra clara */
+}
+
+body.dark-mode #capacidadesMaquinas p {
+    background-color: #444; /* Fondo más oscuro para cada servicio */
+    color: #fff; /* Texto blanco para contraste */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Sombra ligera */
+}
+
+body.dark-mode #capacidadesMaquinas strong {
+    color: #4caf50; /* Color verde para resaltar títulos en modo oscuro */
+}
+
+
+/* Mejoras para las barras de porcentaje de ocupación */
+.occupancy-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 25px;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.occupancy-bar {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(to right, #4caf50, #ffeb3b, #f44336);
+    transition: width 0.5s ease;
+}
+
+.occupancy-bar-label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+
+/* Estilos para la sección de checkboxes en dos columnas */
+.checkbox-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 15px; /* Espacio entre columnas */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+.checkbox-container label {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .checkbox-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+
+/* Estilos para la sección de checkboxes en modo oscuro */
+body.dark-mode .checkbox-container {
+    background-color: #333; /* Fondo oscuro */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra ligera */
+}
+
+body.dark-mode .checkbox-container label {
+    background-color: #444; /* Fondo oscuro para cada opción */
+    color: #fff; /* Texto blanco */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Sombra ligera */
+}
+
+body.dark-mode .checkbox-container input[type="checkbox"] {
+    accent-color: #4caf50; /* Color de marca en modo oscuro (verde suave) */
+}
+
+/* Estilos para los botones de descarga */
+.download-container {
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.download-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.download-container button:hover {
+    background-color: #0056b3;
+}
+
+.dark-mode .download-container button {
+    background-color: #4C9AFF;
+}
+
+.dark-mode .download-container button:hover {
+    background-color: #2979FF;
+}
+
+
+/* Estilos generales para los contenedores de órdenes */
+.ordenes-container,
+.ordenes-realizadas-container {
+    position: relative;
+    padding-bottom: 40px; /* Espacio para el botón */
+}
+
+/* Estilos para el botón de descarga dentro del contenedor */
+.download-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.download-button button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.download-button button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo en modo oscuro */
+.dark-mode .download-button button {
+    background-color: #4C9AFF;
+}
+
+.dark-mode .download-button button:hover {
+    background-color: #2979FF;
+}
+
+#ocupacionMaquinas {
+    max-width: 80%; /* Ajuste para que coincida con el formulario */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    padding: 20px;
+}
+
+/* Estilo en modo oscuro para la ocupación de máquinas */
+body.dark-mode #ocupacionMaquinas {
+    background-color: #333; /* Fondo oscuro */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra sutil */
+    color: #fff; /* Texto blanco para contraste */
+}
+
+body.dark-mode .occupancy-bar-container {
+    background-color: #444; /* Fondo oscuro para la barra */
+}
+
+body.dark-mode .occupancy-bar {
+    background: linear-gradient(to right, #4caf50, #ffeb3b, #f44336); /* Degradado de verde a rojo */
+}
+
+body.dark-mode .occupancy-bar-label {
+    color: #fff; /* Texto blanco para mejor contraste */
+}
+
+.chart-container {
+    width: 80%;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.chart-container {
+    max-width: 700px;  /* Ancho máximo para los gráficos */
+    margin: 20px auto; /* Centrados con margen superior/inferior */
+}
+
+.chart-container-pie {
+    max-width: 300px;  /* Ancho específico para el gráfico de pastel */
+    margin: 20px auto;
+}
+
+.chart-container canvas {
+    border-radius: 15px; /* Bordes redondeados en los gráficos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Contenedor del campo de búsqueda con ícono */
+.search-bar {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilo del input de búsqueda */
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 10px 40px 10px 15px; /* Espacio adicional para el ícono */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* Ícono de lupa */
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-90%); /* Centra el ícono verticalmente */
+    font-size: 16px;
+    color: #999;
+    pointer-events: none;
+}
+
+/* Mejora de los botones: efectos de sombra y clic */
+button, .detalle-btn, .completar-btn, .eliminar-btn {
+    transition: all 0.2s ease; /* Transición suave para hover y clic */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+button:active, .detalle-btn:active, .completar-btn:active, .eliminar-btn:active {
+    transform: scale(0.98); /* Efecto de clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más pequeña */
+}
+
+button:hover, .detalle-btn:hover, .completar-btn:hover, .eliminar-btn:hover {
+    filter: brightness(0.95); /* Oscurecimiento leve en hover */
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.pagination-container button {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0; /* Sin bordes redondeados */
+}
+
+.pagination-container button:first-child {
+    border-radius: 8px 0 0 8px; /* Bordes redondeados en el botón izquierdo */
+}
+
+.pagination-container button:last-child {
+    border-radius: 0 8px 8px 0; /* Bordes redondeados en el botón derecho */
+}
+
+.pagination-container button:hover {
+    background-color: #0056b3;
+}
+
+#detalleEstadoRealizada {
+    font-weight: bold;
+    color: #4caf50; /* Verde por defecto */
+}
+
+#detalleEstadoRealizada.vencida {
+    color: #f44336; /* Rojo para el estado vencido */
+}
+
+.pagination-indicator {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.dark-mode .pagination-indicator {
+    color: #ffffff; /* Ajuste de color para el modo oscuro */
+}
