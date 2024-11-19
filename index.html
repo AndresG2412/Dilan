@@ -24,10 +24,10 @@
             <h2>Formulario de Solicitud de Servicios</h2>
             <form id="servicioForm">
                 <label for="cliente">Nombre del Cliente:</label>
-                <input type="text" id="cliente" name="cliente" placeholder="Ingresa el nombre del cliente" required>
+                <input type="text" id="cliente" name="cliente" placeholder="Ingresa el nombre del cliente" required oninput="soloLetras(event)">
 
                 <label for="cedula">Cédula del Cliente:</label>
-                <input type="text" id="cedula" name="cedula" placeholder="Ingresa la cédula del cliente" required>
+                <input type="text" id="cedula" name="cedula" placeholder="Ingresa la cédula del cliente" required oninput="soloNumeros(event)">
  
                 <label for="motores">Motores:</label>
                 <input type="number" id="motores" name="motores" placeholder="Cantidad de motores">
@@ -90,10 +90,6 @@
 
                 <button type="button" onclick="agregarOrden()">Agregar Orden</button>
             </form>
-
-            <button id="generarPruebas" onclick="generarOrdenesDePrueba()">Generar Órdenes de Prueba</button>
-
-
         </div>
 
         <h2>Órdenes de Reparación</h2>
