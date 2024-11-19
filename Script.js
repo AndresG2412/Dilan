@@ -114,6 +114,25 @@ const distribucionMaquinas = {
     },
 };
 
+/**
+ * Permitir solo letras y espacios en un campo de texto
+ * @param {Event} event - Evento del input
+ */
+function soloLetras(event) {
+    const input = event.target;
+    input.value = input.value.replace(/[^a-zA-Z\s]/g, ''); // Reemplazar cualquier carácter no válido
+}
+
+/**
+ * Permitir solo números en un campo de texto
+ * @param {Event} event - Evento del input
+ */
+function soloNumeros(event) {
+    const input = event.target;
+    input.value = input.value.replace(/[^\d]/g, ''); // Reemplazar cualquier carácter no numérico
+}
+
+
 function obtenerOrdenesDeLocalStorage() {
     const ordenesReparacion = JSON.parse(localStorage.getItem("ordenesReparacion")) || [];
     const ordenesCompletadas = JSON.parse(localStorage.getItem("ordenesCompletadas")) || [];
@@ -202,7 +221,7 @@ async function agregarOrden() {
     let tiempo_estimado = 0;
     const serviciosSeleccionados = [];
 
-  
+
     if (!cliente) {
         Swal.fire({
             icon: 'error',
@@ -681,14 +700,17 @@ function mostrarOrdenesPaginadas(tipo) {
 function mostrarControlesPaginacion(tipo, totalOrdenes) {
     const listaElement = tipo === 'reparacion' ? "listaOrdenes" : "listaOrdenesCompletadas";
     const paginaActual = tipo === 'reparacion' ? paginaActualReparacion : paginaActualRealizadas;
-    const totalPaginas = Math.ceil(totalOrdenes / ordenesPorPagina);
+
+    // Aseguramos que el total de páginas sea al menos 1
+    const totalPaginas = Math.max(Math.ceil(totalOrdenes / ordenesPorPagina), 1);
 
     // Actualizar el indicador de la paginación
     const paginacionIndicador = tipo === 'reparacion' 
         ? document.getElementById("paginacionIndicadorReparacion") 
         : document.getElementById("paginacionIndicadorRealizadas");
 
-    paginacionIndicador.textContent = `Página ${paginaActual} de ${totalPaginas}`;
+    // Cambiar formato a "n de m" (sin la palabra 'Página')
+    paginacionIndicador.textContent = `${paginaActual} de ${totalPaginas}`;
 
     // Eliminar el contenedor de paginación existente si existe
     const controlesExistentes = document.querySelector(`#${listaElement} + .pagination-container`);
@@ -697,17 +719,15 @@ function mostrarControlesPaginacion(tipo, totalOrdenes) {
     }
 
     // Crear el nuevo contenedor de paginación con botones en línea
-    let paginacionHTML = `
+    const paginacionHTML = `
         <div class="pagination-container">
             <button onclick="cambiarPagina('${tipo}', ${paginaActual - 1})" ${paginaActual === 1 ? 'disabled' : ''}>Anterior</button>
             <button onclick="cambiarPagina('${tipo}', ${paginaActual + 1})" ${paginaActual === totalPaginas ? 'disabled' : ''}>Siguiente</button>
         </div>`;
-
+    
     // Agregar el nuevo contenedor de paginación al final de la lista de órdenes
     document.getElementById(listaElement).insertAdjacentHTML('afterend', paginacionHTML);
 }
-
-
 
 function cambiarPagina(tipo, pagina) {
     if (tipo === 'reparacion') {
@@ -717,7 +737,6 @@ function cambiarPagina(tipo, pagina) {
     }
     mostrarOrdenesPaginadas(tipo);
 }
-
 
 // Coloca esta función en `Script.js`
 let ordenAscendente = true; // Variable para alternar entre ascendente y descendente
@@ -1647,85 +1666,3 @@ function generarGraficoOrdenesCompletadas() {
 
 // Llamamos a la función al cargar la página
 document.addEventListener("DOMContentLoaded", generarGraficoOrdenesCompletadas);
-
-function generarOrdenesDePrueba() {
-    // Limpia las órdenes previas
-    localStorage.removeItem("ordenesCompletadas");
-    const ordenesPrueba = [];
-
-    // Crear órdenes completadas a tiempo y otras incumplidas con servicios
-    const ordenesDeEjemplo = [
-        {
-            cliente: "Cliente 1",
-            cedula: "123456",
-            tiempo_estimado: 10,
-            fechaHora: "10/10/2024, 02:00:00 p. m.", // Orden vieja, incumplida
-            fechaCompletada: "13/10/2024, 02:01:00 p. m.", // Completada tarde
-            varios: "Observación de cliente 1",
-            estado: "completado",
-            servicios: [
-                { servicio: "rectificar_bloque", cantidad: 1 },
-                { servicio: "pulir_cigueñal", cantidad: 1 }
-            ]
-        },
-        {
-            cliente: "Cliente 2",
-            cedula: "654321",
-            tiempo_estimado: 5,
-            fechaHora: "11/10/2024, 02:00:00 p. m.", // Orden completada a tiempo
-            fechaCompletada: "13/10/2024, 02:00:00 p. m.", // Completada a tiempo
-            varios: "Observación de cliente 2",
-            estado: "completado",
-            servicios: [
-                { servicio: "cambio_guias", cantidad: 3 },
-                { servicio: "ensamblaje_bielas", cantidad: 1 }
-            ]
-        },
-        {
-            cliente: "Cliente 3",
-            cedula: "987654",
-            tiempo_estimado: 7,
-            fechaHora: "20/10/2024, 09:00:00 a. m.", // Orden incumplida
-            fechaCompletada: "25/10/2024, 09:00:00 a. m.", // Incumplida
-            varios: "Observación de cliente 3",
-            estado: "completado",
-            servicios: [
-                { servicio: "lavado_motor", cantidad: 2 },
-                { servicio: "cepillar_culatas", cantidad: 1 },
-                { servicio: "ensamblaje_bielas", cantidad: 1 }
-            ]
-        },
-        {
-            cliente: "Cliente 4",
-            cedula: "765432",
-            tiempo_estimado: 6,
-            fechaHora: "21/10/2024, 08:00:00 a. m.", // Orden cumplida
-            fechaCompletada: "23/10/2024, 08:00:00 a. m.", // Completada a tiempo
-            varios: "Observación de cliente 4",
-            estado: "completado",
-            servicios: [
-                { servicio: "rectificar_bloque", cantidad: 1 },
-                { servicio: "pulir_cigueñal", cantidad: 2 },
-                { servicio: "cepillar_culatas", cantidad: 1 },
-                { servicio: "ensamblaje_bielas", cantidad: 1 }
-
-            ]
-        }
-    ];
-
-    // Agregar estas órdenes al localStorage
-    ordenesPrueba.push(...ordenesDeEjemplo);
-    localStorage.setItem("ordenesCompletadas", JSON.stringify(ordenesPrueba));
-
-    // Actualizar gráficos
-    generarGraficoOrdenesCompletadas();  // Gráfico de torta
-    generarGraficoServiciosPorDia();  // Gráfico de servicios por día
-
-    Swal.fire({
-        icon: 'success',
-        title: 'Órdenes de Prueba Generadas',
-        text: 'Se han agregado órdenes de prueba correctamente.',
-        confirmButtonText: 'Aceptar'
-    });
-}
-
