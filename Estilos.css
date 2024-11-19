@@ -839,3 +839,63 @@ button:hover, .detalle-btn:hover, .completar-btn:hover, .eliminar-btn:hover {
 .dark-mode .pagination-indicator {
     color: #ffffff; /* Ajuste de color para el modo oscuro */
 }
+
+/* Ajustes para las alertas de SweetAlert2 en modo oscuro */
+body.dark-mode .swal2-popup {
+    background-color: #333 !important; /* Fondo oscuro */
+    color: #fff !important; /* Texto blanco */
+    border: 1px solid #555; /* Borde más claro */
+}
+
+body.dark-mode .swal2-title {
+    color: #fff !important; /* Color blanco para el título */
+}
+
+body.dark-mode .swal2-content {
+    color: #ddd !important; /* Color gris claro para el contenido */
+}
+
+body.dark-mode .swal2-confirm {
+    background-color: #007bff !important; /* Botón azul */
+    color: #fff !important; /* Texto blanco */
+    border: none;
+}
+
+body.dark-mode .swal2-cancel {
+    background-color: #dc3545 !important; /* Botón rojo */
+    color: #fff !important; /* Texto blanco */
+    border: none;
+}
+
+/* Efectos de hover para los botones */
+body.dark-mode .swal2-confirm:hover {
+    background-color: #0056b3 !important; /* Azul más oscuro */
+}
+
+body.dark-mode .swal2-cancel:hover {
+    background-color: #c82333 !important; /* Rojo más oscuro */
+}
+
+
+
+/* Modo claro (predeterminado) */
+body.light-mode #detalleServiciosReparacion li,
+body.light-mode #detalleServiciosRealizada li {
+    background-color: #f9f9f9; /* Fondo claro */
+    color: #000; /* Texto negro */
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd; /* Borde claro */
+    border-radius: 4px;
+}
+
+/* Modo oscuro */
+body.dark-mode #detalleServiciosReparacion li,
+body.dark-mode #detalleServiciosRealizada li {
+    background-color: #444; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #666; /* Borde oscuro */
+    border-radius: 4px;
+}
